@@ -9,3 +9,7 @@ local hello = require("hello")
 prova.test("greets by name", function(t)
   t:expect(hello.greet("world")):equals("hello, world")
 end)
+
+prova.test("shouts in v1.1", function(t)
+  t:expect(require("hello").shout("registry")):equals("HELLO, REGISTRY")
+end)

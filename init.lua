@@ -31,4 +31,9 @@ function hello.greet(who)
   return "hello, " .. tostring(who)
 end
 
+--- v1.1: the update-leg demo — a release that bumps `latest` in the registry.
+function hello.shout(who)
+  return hello.greet(who):upper()
+end
+
 return hello

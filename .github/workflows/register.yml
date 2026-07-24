@@ -19,5 +19,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PROVA_DISPATCH_TOKEN }}
         run: |
-          gh workflow run register.yml -R prova-rs/package-registry \
-            -f repo="${{ github.repository }}" -f ref="${{ github.event.release.tag_name }}"
+          # repository_dispatch: reachable with the token's Contents: write — no Actions scope needed.
+          gh api repos/prova-rs/package-registry/dispatches \
+            -f event_type=register \
+            -f 'client_payload[repo]=${{ github.repository }}' \
+            -f 'client_payload[ref]=${{ github.event.release.tag_name }}'

@@ -18,7 +18,7 @@
 --     A consumer then does `require("hello").container(ctx)`.
 --
 --   • A TOPOLOGY — a whole environment `prova up` can stand up. Advertise it in prova.toml:
---       [[plugin.topologies]]
+--       [[package.topologies]]
 --       name     = "…"        # the public name a project references in [topologies]
 --       factory  = "…"        # the field on THIS table it resolves to
 --       requires = ["…"]      # tools/daemons it needs — gates `prova up` and any test that uses it
